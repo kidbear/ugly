@@ -4,5 +4,17 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	var models = require('../models'),
+		User = models.User;
+    // var user = new User({ 
+    //     email : 'lnn_523@126.com', 
+    //     name : 'linannan' 
+    // }); 
+   	// user.save(function(_err,_product){
+   	// 	user.id = _product.id
+    // });
+    //console.log(user.id);
+    User.find({name:'linannan'},function(_err,_product){
+  		res.render('index', { title: 'Hello,GL!' ,user:_product[0]});
+    })
 };

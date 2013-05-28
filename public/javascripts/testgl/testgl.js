@@ -105,6 +105,10 @@
     var triangleVertexColorBuffer;
     var squareVertexPositionBuffer;
     var squareVertexColorBuffer;
+    var square1VertextPositionBuffer;
+    var square1VertextColorBuffer;
+    var square3VertextPositionBuffer;
+    var square3VertextColorBuffer;
 
     function initBuffers() {
         triangleVertexPositionBuffer = gl.createBuffer();
@@ -122,8 +126,8 @@
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
         var colors = [
             1.0, 0.0, 0.0, 1.0,
-            0.0, 1.0, 0.0, 1.0,
-            0.0, 0.0, 1.0, 1.0,
+            0.0, 1.0, 1.0, 0.5,
+            0.0, 0.0, 1.0, 0.2,
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
         triangleVertexColorBuffer.itemSize = 4;
@@ -151,6 +155,20 @@
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
         squareVertexColorBuffer.itemSize = 4;
         squareVertexColorBuffer.numItems = 4;
+
+        //左边的
+        square1VertextPositionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,square1VertextPositionBuffer);
+        vertices = [
+             1.0,  1.0,  0.0,
+            -1.0,  1.0,  0.0,
+             1.0, -1.0,  0.0,
+            -1.0, -1.0,  0.0
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STATIC_DRAW);
+        square1VertextPositionBuffer.itemSize = 3;
+        square1VertextPositionBuffer.numItems = 4;
+
     }
 
 
@@ -167,7 +185,9 @@
 
         mvPushMatrix();
         mvMatrix.translate(OAK.SPACE_WORLD, -1.5, 0.0, -7.0, true);
-        mvMatrix.rotY(OAK.SPACE_LOCAL, rTri, true);
+        mvMatrix.rotX(OAK.SPACE_LOCAL, rTri, true);
+        // mvMatrix.rotY(OAK.SPACE_LOCAL, rTri, true);
+        // mvMatrix.rotZ(OAK.SPACE_WORLD, rTri, true);
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, triangleVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
@@ -190,6 +210,33 @@
 
         setMatrixUniforms();
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, squareVertexPositionBuffer.numItems);
+
+        mvPopMatrix();
+
+
+        mvPushMatrix();
+        mvMatrix.translate(OAK.SPACE_WORLD, -4.0, 0.0, -7.0, true);
+        mvMatrix.rotX(OAK.SPACE_LOCAL, rSquare, true);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, square1VertextPositionBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, square1VertextPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+        
+        setMatrixUniforms();
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, square1VertextPositionBuffer.numItems);
+
+        mvPopMatrix();
+
+        mvPushMatrix();
+        mvMatrix.translate(OAK.SPACE_WORLD, 4.0, 0.0, -7.0, true);
+        mvMatrix.rotX(OAK.SPACE_LOCAL, rSquare, true);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, square1VertextPositionBuffer);
+        gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, square1VertextPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+        
+        setMatrixUniforms();
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, square1VertextPositionBuffer.numItems);
 
         mvPopMatrix();
     }

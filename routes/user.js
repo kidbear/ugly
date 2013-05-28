@@ -9,3 +9,9 @@ exports.list = function(req, res){
 exports.testgl = function(req,res){
 	res.render('testgl', { title: 'testgl' });
 }
+exports.glbanner = function(req,res){
+	res.render('glbanner',{title:'glbanner'});
+}
+exports.responsive = function(req,res){
+	res.render('responsive',{title:'Responsive Test'});
+}

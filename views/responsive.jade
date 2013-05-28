@@ -1,0 +1,90 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/flexible.css') 
+    link(rel='stylesheet',media="screen and (max-width: 600px)" ,href="/stylesheets/small.css" )
+  body
+    block contents
+
+ #page
+    .inner
+        .mast
+          h1#logo
+            a(href='#')
+              img(src='/images/responsive/logo.png', alt='haha logo')
+          ul.nav
+            li.first
+              a(href='#')
+                i The
+                | Weblogue
+            li
+              a(href='#')
+                i Back
+                | Issues
+            li.last
+              a(href='#')
+                i About
+                | Our Paper
+          
+        .section.intro
+          div
+            h2
+              | “Give me problems, give me
+              em work
+              | .”
+            p
+              | In the year 1878 I took my degree of Doctor of Medicine of the University of London, and proceeded to Netley to go through the course prescribed for surgeons in the army. Having completed my studies there, I was duly attached to the Fifth Northumberland Fusiliers as Assistant Surgeon. The regiment was stationed in India at the time, and before I could join it, the second Afghan war had broken out. On landing at Bombay, I learned that my corps had advanced through the passes, and was already deep in the enemy’s country.
+        
+        .section.main
+          h2
+            b
+              | Victors
+              abbr.amp(title='And') &
+              | Villains
+          ol
+            li#f-holmes.figure
+              a(href='#')
+                img(src='/images/responsive/f-holmes.jpg', alt='')
+                span.figcaption
+                  | Sherlock
+                  b Holmes
+            
+            li#f-watson.figure
+              a(href='#')
+                img(src='/images/responsive/f-watson.jpg', alt='')
+                span.figcaption
+                  abbr(title='Professor') Dr
+                  | John Hemish
+                  b Watson
+            
+            li#f-mycroft.figure
+              a(href='#')
+                img(src='/images/responsive/f-mycroft.jpg', alt='')
+                span.figcaption
+                  | Mycroft
+                  b Holmes
+            
+            li#f-moriarty.figure
+              a(href='#')
+                img(src='/images/responsive/f-moriarty.jpg', alt='')
+                span.figcaption
+                  abbr(title='Professor') Prof
+                  | James
+                  b Moriarty
+            
+            li#f-adler.figure
+              a(href='#')
+                img(src='/images/responsive/f-adler.jpg', alt='')
+                span.figcaption
+                  | Irene
+                  b Adler
+            
+            li#f-winter.figure
+              a(href='#')
+                img(src='/images/responsive/f-winter.jpg', alt='')
+                span.figcaption
+                  | James
+                  b Winter
+       
