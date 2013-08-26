@@ -1,10 +1,17 @@
-extends layout
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/haha.css')
+  
+  body
 
 block content
   h1= title
   p Welcome to #{title}
 
-  canvas#lesson03-canvas
+  canvas#firstCanvas
 
   script(src='../javascripts/testgl/Oak3D_v_0_5.js') 
   script#shader-fs(type="x-shader/x-fragment").
@@ -27,5 +34,5 @@ block content
         gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
         vColor = aVertexColor;
     }
-    
-  script(src='../javascripts/testgl/testgl.js')
+  script(src='http://nej.study.163.com/libs/nej/src/define.js')
+  script(src='../javascripts/testgl/haha.js')

@@ -15,3 +15,6 @@ exports.glbanner = function(req,res){
 exports.responsive = function(req,res){
 	res.render('responsive',{title:'Responsive Test'});
 }
+exports.haha = function(req,res){
+	res.render('haha',{title:'What?'});
+}

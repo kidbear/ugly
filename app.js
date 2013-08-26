@@ -45,6 +45,7 @@ app.get('/', routes.index);
 app.get('/testgl',user.testgl);
 app.get('/glbanner',user.glbanner);
 app.get('/responsive',user.responsive);
+app.get('/haha',user.haha);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

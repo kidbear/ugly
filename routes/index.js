@@ -15,6 +15,6 @@ exports.index = function(req, res){
     // });
     //console.log(user.id);
     User.find({name:'linannan'},function(_err,_product){
-  		res.render('index', { title: 'Hello,GL!' ,user:_product[0]||'guest'});
+  		res.render('index', { title: 'Hello,GL!' ,user:_product[0]||{name:'guest'}});
     })
 };
